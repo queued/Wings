@@ -17,7 +17,7 @@ Using `Wings` is a very easy and simple task. You just need to **require/include
 ```php
 use Wings\ORM;
 
-// If you're not using Autoload, you'll also need to require/include the Exceptions Cases and the ORM class
+// If you're NOT using an Autoload script, you must to require/include the Exceptions Cases and the ORM class
 // require 'path/to/Wings/Exceptions/ExecutionException.php';
 // require 'path/to/Wings/Exceptions/FetchException.php';
 // require 'path/to/Wings/Exceptions/FlyingException.php';
