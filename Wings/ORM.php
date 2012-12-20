@@ -188,7 +188,8 @@ class ORM extends \PDO {
             $this->stmt = new parent(static::$dsn, static::$username, static::$password,
                                 array(
                                     parent::ATTR_PERSISTENT => true,
-                                    parent::ATTR_AUTOCOMMIT => false
+                                    parent::ATTR_AUTOCOMMIT => false,
+                                    parent::ATTR_ERRMODE    => parent::ERRMODE_EXCEPTION
                                 )
                                );
 
@@ -458,9 +459,10 @@ class ORM extends \PDO {
      * @param   int $limit Selection limit
      * @param   string $order_by ORDER BY ?
      * @param   string $sorting_mode Sorting mode to select from the flying table
+     * @param   bool $pdo_return Do you need the default PDOStatement return on SELECT queries?
      * @return  mixed May return this class object if everything fine, otherwise will return false
      */
-    public function select(array $fields, $where = null, $limit = null, $order_by = null) {
+    public function select(array $fields, $where = null, $limit = null, $order_by = null, $pdo_return = false) {
         // Redefine vars
         $fields = (isset($fields) && !empty($fields)) ? static::selectPrepare($fields) : '*';
         $where = (isset($where) && !empty($where)) ? ' WHERE (' . (string) $this->hydrate($where) . ')' : null;
@@ -476,6 +478,11 @@ class ORM extends \PDO {
 
             // Increase the query counter
             $this->numQueries++;
+
+            // Does the user need the PDOStatement return?
+            if ($pdo_return) {
+                return $this->scope;
+            }
 
             return $this;
         }
