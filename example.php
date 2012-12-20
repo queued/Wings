@@ -13,7 +13,8 @@ Wings\ORM::authenticate('username', 'password');
 // Let's fly! :)
 $wings = Wings\ORM::fly('table_name');
 $wings->select(array('field1', 'field2'), 'id = 1', 1);
-// The above example will return this query (result): SELECT `field1`, `field2' FROM `table_name` WHERE (`id` = '1') LIMIT 0,1 DESC
+// The above example will return the result for this query:
+// SELECT `field1`, `field2` FROM `table_name` WHERE (`id` = '1') LIMIT 0,1
 
 // How many rows has been selected?
 echo "Selected rows: " . (int) $wings->count() . "\n<br />\n";
