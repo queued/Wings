@@ -105,6 +105,13 @@ class ORM extends \PDO {
     private $table = null;
 
     /**
+     * When SELECT queries are executed, the return will be the PDOStatement object?
+     *
+     * @var bool
+     */
+    private $pdoReturn = false;
+
+    /**
      * Used as a temporary variable to hold queries
      *
      * @var string
@@ -113,6 +120,8 @@ class ORM extends \PDO {
 
     /**
      * Default quotes to use on query hydratation
+     *
+     * @var string
      */
     private $quotes = null;
 
@@ -363,6 +372,16 @@ class ORM extends \PDO {
     }
 
     /**
+     * Sets the $return mode for SELECT queries
+     *
+     * @param   bool $true Will SELECT queries return the PDOStatement object?
+     * @return  void
+     */
+    public function setPdoReturn($true = true) {
+        $this->pdoReturn = $true;
+    }
+
+    /**
      * Inserts a record to the flying table
      *
      * @access  public
@@ -459,10 +478,9 @@ class ORM extends \PDO {
      * @param   int $limit Selection limit
      * @param   string $order_by ORDER BY ?
      * @param   string $sorting_mode Sorting mode to select from the flying table
-     * @param   bool $pdo_return Do you need the default PDOStatement return on SELECT queries?
      * @return  mixed May return this class object if everything fine, otherwise will return false
      */
-    public function select(array $fields, $where = null, $limit = null, $order_by = null, $pdo_return = false) {
+    public function select(array $fields, $where = null, $limit = null, $order_by = null) {
         // Redefine vars
         $fields = (isset($fields) && !empty($fields)) ? static::selectPrepare($fields) : '*';
         $where = (isset($where) && !empty($where)) ? ' WHERE (' . (string) $this->hydrate($where) . ')' : null;
@@ -480,7 +498,7 @@ class ORM extends \PDO {
             $this->numQueries++;
 
             // Does the user need the PDOStatement return?
-            if ($pdo_return) {
+            if ($this->pdoReturn) {
                 return $this->scope;
             }
 
