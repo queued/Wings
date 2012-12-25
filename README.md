@@ -68,4 +68,6 @@ Wings is licensed under the [MIT License](http://www.opensource.org/licenses/mit
 Changelog *(DD/MM/YY)*
 ---------------
 
-* **0.5.4 (22/12/12)** - Added the `setPdoReturn()` method to change the return value on the `select()` method.
+`0.5.4` - *(22/12/12)*
+
+* Added the `setPdoReturn()` method to change the return value on the `select()` method.

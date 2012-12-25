@@ -56,7 +56,7 @@ class ORM extends \PDO {
      *
      * @var int
      */
-    const VERSION_ID = 05000;
+    const VERSION_ID = 05400;
 
     /**
      * Fetch modes for developer-friendly recognition
