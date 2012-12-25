@@ -65,8 +65,10 @@ License
 ---------------
 Wings is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php "MIT License"), so you can do whatever you want, since you maintain a link to this repository and leave a mention of my name as the original author of the Wings library.
 
-Changelog *(DD/MM/YY)*
+Changelog
 ---------------
+
+Date formating: *(DD/MM/YY)*
 
 `0.5.4` - *(22/12/12)*
 
