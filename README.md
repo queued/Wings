@@ -77,3 +77,7 @@ Date formating: *(DD/MM/YY)*
 `0.5.4.1` - *27/12/12*
 
 * Fixed a silly logical error on the `select()` method.
+
+`0.5.4.2` - *27/12/12*
+
+* The `$append` param has been added on the `insert()` method.

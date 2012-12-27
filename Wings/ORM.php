@@ -386,12 +386,13 @@ class ORM extends \PDO {
      *
      * @access  public
      * @param   array $data Array with the parameters to insert. Must an array with this structure: array('field1' => 'value1')
+     * @param   string $append Some string to append at the end of the query
      * @return  bool True if succeed, otherwise will return false
      */
-    public function insert(array $data) {
+    public function insert(array $data, $append = null) {
         try {
             $insertData = static::insertPrepare($data);
-            $this->scope = $this->stmt->prepare('INSERT INTO ' . $this->quotes . $this->table . $this->quotes . " ({$insertData['fields']}) VALUES ({$insertData['placeholders']})");
+            $this->scope = $this->stmt->prepare(rtrim('INSERT INTO ' . $this->quotes . $this->table . $this->quotes . " ({$insertData['fields']}) VALUES ({$insertData['placeholders']}) " . $append));
 
             foreach ($data as $key => $val) {
                 $type = static::defineType($val);
