@@ -41,7 +41,7 @@ use Wings\Exceptions\FlyingException;
  * @since       2012 December, 19.
  * @license     http://www.opensource.org/licenses/mit-license.php MIT License
  * @link        http://github.com/over9k/Wings
- * @version     0.5.4
+ * @version     0.5.4.2
  */
 class ORM extends \PDO {
     /**
@@ -49,14 +49,14 @@ class ORM extends \PDO {
      *
      * @var string
      */
-    const VERSION = '0.5.4';
+    const VERSION = '0.5.4.2';
 
     /**
      * Current version ID
      *
      * @var int
      */
-    const VERSION_ID = 05400;
+    const VERSION_ID = 05402;
 
     /**
      * Fetch modes for developer-friendly recognition
