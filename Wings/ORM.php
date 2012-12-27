@@ -480,9 +480,9 @@ class ORM extends \PDO {
      * @param   string $sorting_mode Sorting mode to select from the flying table
      * @return  mixed May return this class object if everything fine, otherwise will return false
      */
-    public function select(array $fields, $where = null, $limit = null, $order_by = null) {
+    public function select(array $fields = array(), $where = null, $limit = null, $order_by = null) {
         // Redefine vars
-        $fields = (isset($fields) && !empty($fields)) ? static::selectPrepare($fields) : '*';
+        $fields = (isset($fields) && count($fields) > 0) ? static::selectPrepare($fields) : '*';
         $where = (isset($where) && !empty($where)) ? ' WHERE (' . (string) $this->hydrate($where) . ')' : null;
         $limit = (isset($limit) && !empty($limit)) ? ' LIMIT 0,' . (int) $limit : null;
         $order_by = (isset($order_by) && !empty($order_by)) ? ' ORDER BY ' . (string) $order_by : null;

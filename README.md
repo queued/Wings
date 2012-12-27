@@ -73,3 +73,7 @@ Date formating: *(DD/MM/YY)*
 `0.5.4` - *(22/12/12)*
 
 * Added the `setPdoReturn()` method to change the return value on the `select()` method.
+
+`0.5.4.1` - *27/12/12*
+
+* Fixed a silly logical error on the `select()` method.
