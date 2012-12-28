@@ -68,7 +68,7 @@ Wings is licensed under the [MIT License](http://www.opensource.org/licenses/mit
 Changelog
 ---------------
 
-Date formating: *(DD/MM/YY)*
+**Date formating:** *(DD/MM/YY)*
 
 `0.5.4` - *(22/12/12)*
 
@@ -81,3 +81,7 @@ Date formating: *(DD/MM/YY)*
 `0.5.4.2` - *27/12/12*
 
 * The `$append` param has been added on the `insert()` method.
+
+`0.5.4.3` - *28/12/12*
+
+* Added a new connection attribute (defult fetch method).
