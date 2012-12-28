@@ -85,3 +85,7 @@ Changelog
 `0.5.4.3` - *28/12/12*
 
 * Added a new connection attribute (defult fetch method).
+
+`0.5.5` - *28/12/12*
+
+* Added prefix support for the flying table.

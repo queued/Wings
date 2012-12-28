@@ -41,7 +41,7 @@ use Wings\Exceptions\FlyingException;
  * @since       2012 December, 19.
  * @license     http://www.opensource.org/licenses/mit-license.php MIT License
  * @link        http://github.com/over9k/Wings
- * @version     0.5.4.3
+ * @version     0.5.5
  */
 class ORM extends \PDO {
     /**
@@ -49,14 +49,14 @@ class ORM extends \PDO {
      *
      * @var string
      */
-    const VERSION = '0.5.4.3';
+    const VERSION = '0.5.5';
 
     /**
      * Current version ID
      *
      * @var int
      */
-    const VERSION_ID = 05403;
+    const VERSION_ID = 05500;
 
     /**
      * Fetch modes for developer-friendly recognition
@@ -89,6 +89,13 @@ class ORM extends \PDO {
      * @var string
      */
     private static $username, $password = null;
+
+    /**
+     * Table prefix
+     *
+     * @var string
+     */
+    private static $prefix = null;
 
     /**
      * Used as the master variable holding the \PDO class
@@ -171,6 +178,17 @@ class ORM extends \PDO {
     }
 
     /**
+     * Specify the table prefix
+     *
+     * @access  public
+     * @param   string $prefix Table prefix
+     * @return  void
+     */
+    public static function prefix($prefix) {
+        static::$prefix = (string) $prefix . '_';
+    }
+
+    /**
      * Static constructor
      *
      * @access  public
@@ -209,7 +227,7 @@ class ORM extends \PDO {
                 $this->flying = true;
 
                 // We're flying under which table?
-                $this->table = (string) $table;
+                $this->table = static::$prefix . (string) $table;
 
                 // What is the loaded quoting style?
                 $this->quotes = $this->get_quote_style();
