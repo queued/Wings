@@ -1,6 +1,10 @@
 Wings
 ---------------
-`Wings` is a very lightweight easy-to-use non-orm ORM library for PHP to make your database abstraction faster and simple with just one shot.
+`Wings` is a very lightweight and easy-to-use database wrapper library for PHP to make your database abstraction faster and simple with just one shot.
+
+Note
+---------------
+This project is outdated has been a while. I'll update it 'till the end of Sep. with a BIG change - This project will be launched soon...
 
 Requirements
 ---------------
