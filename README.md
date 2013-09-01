@@ -2,15 +2,14 @@ Wings
 ---------------
 `Wings` is a very lightweight and easy-to-use database wrapper library for PHP to make your database abstraction faster and simple with just one shot.
 
-Note
----------------
-This project is outdated has been a while. I'll update it 'till the end of Sep. with a BIG change - This project will be launched soon...
+### Note
+This project is outdated has been a while. I'll update it 'till the end of Sep. (09/2013) with a **BIG** change - This project will be launched soon...
 
 Requirements
 ---------------
 * **PDO** Extension for PHP
 * At least one **PDO** driver
-* PHP **5.3** or higher
+* PHP **5.3** or higher (**5.3.11+** is recommended)
 
 Code
 ---------------
